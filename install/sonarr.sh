@@ -21,26 +21,27 @@ apt install mono-devel -y
 ##########################
 
 ## User and Groups Setup
-groupadd media
-adduser --system --shell=/sbin/nologin sonarr
-usermod -a -G media sonarr
+# groupadd media
+# adduser --system --shell=/sbin/nologin sonarr
+# usermod -a -G media sonarr
 
-## File permissions for TV Shows folder
-mkdir /storage/TV\ Shows
-chmod -R 775 /storage/TV\ Shows
-chown -R sonarr:media /storage/TV\ Shows
 
 ## Add Sonarr's Repository
-apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 0xA236C58F409091A18ACA53CBEBFF6B99D9B78493
-echo "deb http://apt.sonarr.tv/ master main" | tee /etc/apt/sources.list.d/sonarr.list
+apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 2009837CBFFD68F45BC180471F4F90DE2A9B4BF8
+echo "deb https://apt.sonarr.tv/ubuntu bionic main" | tee /etc/apt/sources.list.d/sonarr.list
 
 ## Install Sonarr
 apt update
-apt install nzbdrone -y
+apt install sonarr -y
 
-## File permissions for installation directory
-chmod -R 775 /opt/NzbDrone
-chown -R sonarr:media /opt/NzbDrone
+## File permissions for TV Shows folder
+# mkdir /storage/TV\ Shows
+# chmod -R 775 /storage/TV\ Shows
+# chown -R sonarr:media /storage/TV\ Shows
+
+# ## File permissions for installation directory
+# chmod -R 775 /opt/NzbDrone
+# chown -R sonarr:media /opt/NzbDrone
 
 ## Create Systemd script so the service will run on boot
 echo "[Unit]
