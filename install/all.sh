@@ -1,5 +1,5 @@
 #!/bin/bash
-declare -a services=("radarr" "sonarr" "lidarr")
+declare -a services=("radarr" "sonarr" "lidarr" "jackett" "deluge" "plex" "tautulli" "ombi" "heimdall")
 
 for service in "${services[@]}" do
     echo "Working on $service"

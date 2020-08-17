@@ -22,9 +22,15 @@ unzip openvpn*.zip -d openvpn
 cp ~/openvpn/*2048.crt /etc/openvpn
 cp ~/openvpn/*2048.pem /etc/openvpn
 
+######
+## You may need to add the following
+## push "dhcp-option DNS 192.168.1.1"
+## push "dhcp-option DNS 192.168.1.10"
+######
+
 ## Generate credential file
-echo "user
-pass" > /etc/openvpn/login.txt
+echo "p6148937
+qQmNMfgRrb" > /etc/openvpn/login.txt
 chmod 0600 /etc/openvpn/login.txt
 
 ## Make file modifications so VPN starts on boot and can login correctly
